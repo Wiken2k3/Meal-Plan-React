@@ -1,0 +1,222 @@
+/* ================= APP BAR ================= */
+
+.app-bar {
+  background: var(--color-card);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.app-bar-container {
+  max-width: 390px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-bar-title {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.6px;
+  margin: 0;
+}
+
+/* ================= ACTIONS ================= */
+
+.app-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ICON BUTTON */
+.app-bar-icon-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  background-color: #D1E5F8; /* SAME AS day-section-btn */
+  border: 1px solid var(--color-border);
+
+  color: var(--color-button-color); /* SAME ICON COLOR */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  cursor: pointer;
+
+  transition: all 0.15s ease;
+}
+
+.app-bar-icon-button svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2.5;
+}
+
+/* HOVER */
+.app-bar-icon-button:hover {
+  background-color: #B3D9F2;
+  transform: scale(1.05);
+}
+
+/* ACTIVE */
+.app-bar-icon-button:active {
+  transform: scale(0.95);
+}
+
+/* DARK MODE */
+html.dark .app-bar-icon-button {
+  background-color: rgba(24, 186, 248, 0.2);
+}
+
+html.dark .app-bar-icon-button:hover {
+  background-color: rgba(24, 186, 248, 0.3);
+}
+
+
+/* ================= DROPDOWN ================= */
+
+.more-wrapper {
+  position: relative;
+}
+
+.more-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  width: 260px;
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 18px;
+  padding: 6px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+  border: 1px solid rgba(0,0,0,.08);
+  z-index: 999;
+}
+
+html.dark .more-menu {
+  background: rgba(28,28,30,.88);
+  border-color: rgba(255,255,255,.08);
+}
+
+/* ================= MENU ITEM ================= */
+
+.menu-item {
+  height: 48px;
+  padding: 0 14px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background .15s ease;
+}
+
+/* TEXT LEFT */
+.menu-label {
+  flex: 1;
+  text-align: left;
+}
+
+/* ICON RIGHT – FIX WIDTH FOR ALIGN */
+.menu-icon {
+  width: 28px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menu-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2.2;
+  opacity: .95;
+}
+
+/* NORMAL */
+.menu-item {
+  color: #111827;
+}
+
+.menu-item:hover {
+  background: rgba(0,0,0,.06);
+}
+
+html.dark .menu-item {
+  color: #f3f4f6;
+}
+
+html.dark .menu-item:hover {
+  background: rgba(255,255,255,.08);
+}
+
+/* DESTRUCTIVE – LUÔN ĐỎ */
+.menu-item.destructive,
+.menu-item.destructive .menu-icon svg {
+  color: #EF4444 !important;
+}
+
+.menu-item.destructive:hover {
+  background: rgba(239,68,68,.15);
+}
+
+html.dark .menu-item.destructive:hover {
+  background: rgba(239,68,68,.2);
+}
+
+/* DIVIDER */
+.menu-divider {
+  height: 1px;
+  margin: 6px 10px;
+  background: rgba(0,0,0,.12);
+}
+
+html.dark .menu-divider {
+  background: rgba(255,255,255,.15);
+}
+
+/* ================= TOGGLE ================= */
+
+.toggle-switch {
+  width: 50px;
+  height: 26px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  position: relative;
+  cursor: pointer;
+  transition: background .25s ease;
+}
+
+.toggle-switch.on {
+  background: #18baf8;
+}
+
+.toggle-slider {
+  width: 22px;
+  height: 22px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform .25s cubic-bezier(.4,0,.2,1);
+  box-shadow: 0 2px 6px rgba(0,0,0,.25);
+}
+
+.toggle-switch.on .toggle-slider {
+  transform: translateX(24px);
+}
+
+html.dark .toggle-switch.off {
+  background: #4b5563;
+}
