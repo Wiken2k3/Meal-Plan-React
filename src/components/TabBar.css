@@ -3,8 +3,8 @@
   justify-content: space-around;
   align-items: center;
 
-  background-color: var(--color-card);
-  border-top: 1px solid var(--color-border);
+  background-color: var(--color-card, #ffffff);
+  border-top: 1px solid var(--color-border, #e5e7eb);
 
   padding: 12px 8px 14px;
 }
@@ -24,39 +24,49 @@
   padding: 6px 0;
   cursor: pointer;
 
-  color: var(--color-text-muted);
-  transition: color 0.2s ease;
+  color: var(--color-text-muted, #9ca3af);
+  transition: color 0.2s ease, transform 0.15s ease;
 }
 
 /* ICON */
 .tab-bar-icon {
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
   stroke-width: 2.2;
+}
+
+/* SETTINGS ICON (CIRCLE) */
+.settings-icon {
+  padding: 4px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
 }
 
 /* LABEL */
 .tab-bar-label {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 600;
   line-height: 1;
+  letter-spacing: 0.2px;
 }
 
 /* ACTIVE */
 .tab-bar-btn.active {
-  color: #18BAF8;
+  color: #18baf8;
 }
 
 .tab-bar-btn.active .tab-bar-icon {
-  stroke-width: 2.6;
+  stroke-width: 2.8;
+  transform: scale(1.05);
 }
 
-/* HOVER */
+/* HOVER (desktop) */
 .tab-bar-btn:hover {
-  color: var(--color-text);
+  color: var(--color-text, #111827);
 }
 
-/* DARK MODE TWEAK (optional but nice) */
+/* DARK MODE (optional) */
 html.dark .tab-bar {
-  background-color: var(--color-card);
+  background-color: var(--color-card, #0f172a);
+  border-color: #1f2937;
 }

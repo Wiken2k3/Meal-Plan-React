@@ -3,20 +3,21 @@ import {
   CalendarDays,
   FileText,
   ShoppingBasket,
-  Sparkles,
+  WandSparkles,
   MoreHorizontal
 } from 'lucide-react'
+
 import './TabBar.css'
 
 const tabs = [
   { id: 'meal-plan', name: 'Meal Plan', icon: CalendarDays },
   { id: 'recipes', name: 'Recipes', icon: FileText },
   { id: 'groceries', name: 'Groceries', icon: ShoppingBasket },
-  { id: 'discover', name: 'Discover', icon: Sparkles },
+  { id: 'discover', name: 'Discover', icon: WandSparkles },
   { id: 'settings', name: 'Settings', icon: MoreHorizontal },
 ]
 
-export default function TabBar({ activeTab = 'meal-plan' }) {
+export default function TabBar({ activeTab = 'meal-plan', onChange }) {
   return (
     <div className="tab-bar">
       {tabs.map((tab) => {
@@ -27,8 +28,13 @@ export default function TabBar({ activeTab = 'meal-plan' }) {
           <button
             key={tab.id}
             className={`tab-bar-btn ${isActive ? 'active' : ''}`}
+            onClick={() => onChange?.(tab.id)}
           >
-            <Icon className="tab-bar-icon" />
+            <Icon
+              className={`tab-bar-icon ${
+                tab.id === 'settings' ? 'settings-icon' : ''
+              }`}
+            />
             <span className="tab-bar-label">{tab.name}</span>
           </button>
         )

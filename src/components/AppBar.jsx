@@ -6,8 +6,8 @@ import {
   ShoppingCart,
   Trash2,
   CloudSun,
-  Sparkles
-} from "lucide-react"
+  WandSparkles
+} from 'lucide-react'
 
 export default function AppBar({ isDarkMode, onToggleDark }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -19,8 +19,8 @@ export default function AppBar({ isDarkMode, onToggleDark }) {
         setIsMenuOpen(false)
       }
     }
-    document.addEventListener("mousedown", handler)
-    return () => document.removeEventListener("mousedown", handler)
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
   }, [])
 
   return (
@@ -31,7 +31,6 @@ export default function AppBar({ isDarkMode, onToggleDark }) {
         <div className="app-bar-actions">
           <IconButton icon={<Download />} />
 
-          {/* MORE */}
           <div className="more-wrapper" ref={menuRef}>
             <IconButton
               icon={<MoreHorizontal />}
@@ -43,20 +42,17 @@ export default function AppBar({ isDarkMode, onToggleDark }) {
                 <MenuItem
                   label="Add to Groceries"
                   icon={<ShoppingCart />}
-                  onClick={() => setIsMenuOpen(false)}
                 />
 
                 <MenuItem
                   label="Generate Plan for Week"
-                  icon={<Sparkles />}
-                  onClick={() => setIsMenuOpen(false)}
+                  icon={<WandSparkles />}
                 />
 
                 <MenuItem
                   label="Clear Current Week"
                   icon={<Trash2 />}
                   destructive
-                  onClick={() => setIsMenuOpen(false)}
                 />
 
                 <div className="menu-divider" />
@@ -64,13 +60,11 @@ export default function AppBar({ isDarkMode, onToggleDark }) {
                 <MenuItem
                   label="Show Weather"
                   icon={<CloudSun />}
-                  onClick={() => setIsMenuOpen(false)}
                 />
               </div>
             )}
           </div>
 
-          {/* DARK MODE */}
           <div
             className={`toggle-switch ${isDarkMode ? 'on' : 'off'}`}
             onClick={onToggleDark}
@@ -83,6 +77,8 @@ export default function AppBar({ isDarkMode, onToggleDark }) {
   )
 }
 
+/* ================= SUB COMPONENTS ================= */
+
 function IconButton({ icon, onClick }) {
   return (
     <button onClick={onClick} className="app-bar-icon-button">
@@ -91,12 +87,9 @@ function IconButton({ icon, onClick }) {
   )
 }
 
-function MenuItem({ label, icon, onClick, destructive }) {
+function MenuItem({ label, icon, destructive }) {
   return (
-    <button
-      onClick={onClick}
-      className={`menu-item ${destructive ? 'destructive' : ''}`}
-    >
+    <button className={`menu-item ${destructive ? 'destructive' : ''}`}>
       <span className="menu-label">{label}</span>
       <span className="menu-icon">{icon}</span>
     </button>
