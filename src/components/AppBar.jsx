@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import './AppBar.css'
 import {
-  Download,
+  ArrowDown,
   MoreHorizontal,
   ShoppingCart,
   Trash2,
@@ -29,7 +29,7 @@ export default function AppBar({ isDarkMode, onToggleDark }) {
         <h1 className="app-bar-title">Meal Plan</h1>
 
         <div className="app-bar-actions">
-          <IconButton icon={<Download />} />
+          <IconButton icon={<ArrowDown />} />
 
           <div className="more-wrapper" ref={menuRef}>
             <IconButton
