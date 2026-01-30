@@ -1,8 +1,8 @@
 import React from 'react';
-import AppBar from '../components/AppBar';
-import DaySection from '../components/DaySection';
-import TabBar from '../components/TabBar';
-import mealData from '../data/meal';
+import AppBar from '../../components/AppBar/AppBar';
+import DaySection from '../../components/DaySection/DaySection';
+import TabBar from '../../components/TabBar/TabBar';
+import mealData from '../../data/meal';
 import './MealPlan.css';
 
 export default function MealPlan({ isDarkMode, onToggleDark }) {

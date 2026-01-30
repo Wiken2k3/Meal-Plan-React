@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import {
   CalendarDays,
   FileText,
@@ -17,24 +18,30 @@ const tabs = [
   { id: 'settings', name: 'Settings', icon: MoreHorizontal },
 ]
 
-export default function TabBar({ activeTab = 'meal-plan', onChange }) {
+export default function TabBar() {
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const activeTab =
+    location.pathname === '/'
+      ? 'meal-plan'
+      : location.pathname.replace('/', '')
+
   return (
     <div className="tab-bar">
       {tabs.map((tab) => {
         const Icon = tab.icon
-        const isActive = activeTab === tab.id
+        const isActive = tab.id === activeTab
 
         return (
           <button
             key={tab.id}
             className={`tab-bar-btn ${isActive ? 'active' : ''}`}
-            onClick={() => onChange?.(tab.id)}
+            onClick={() =>
+              navigate(tab.id === 'meal-plan' ? '/' : `/${tab.id}`)
+            }
           >
-            <Icon
-              className={`tab-bar-icon ${
-                tab.id === 'settings' ? 'settings-icon' : ''
-              }`}
-            />
+            <Icon className="tab-bar-icon" />
             <span className="tab-bar-label">{tab.name}</span>
           </button>
         )

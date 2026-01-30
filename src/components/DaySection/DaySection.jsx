@@ -1,6 +1,6 @@
 import React from 'react';
 import { Plus, MoreHorizontal } from 'lucide-react';
-import MealItem from './MealItem';
+import MealItem from '../MealItem/MealItem';
 import './DaySection.css';
 
 export default function DaySection({ day, date, meals = [] }) {
